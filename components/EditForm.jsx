@@ -1,15 +1,18 @@
 import { updateTask } from "@/utils/actions";
 
 const EditForm = ({ task }) => {
+
+  const {id, content, completed} = task
+
   return (
     <form action={updateTask} className="border border-base-300 rounded-lg max-w-sm p-7">
-        <input name="id" id="id" type="hidden" value={task?.id}></input>
+        <input name="id" id="id" type="hidden" value={id}></input>
         <input
           name="content"
           id="content"
           type="text"
           required
-          defaultValue={task.content}
+          defaultValue={content}
           className="input input-bordered w-full"
         ></input>
         <div className="form-control my-4">
@@ -20,7 +23,7 @@ const EditForm = ({ task }) => {
             name="completed"
             id="completed"
             className="checkbox checkbox-primary checkbox-sm"
-            defaultChecked={task.completed}
+            defaultChecked={completed}
           />
           </label>
         </div>
